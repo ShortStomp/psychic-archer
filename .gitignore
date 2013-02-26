@@ -2,6 +2,14 @@
 *.slo
 *.lo
 *.o
+*.tlog
+*.log
+*.obj
+*.ilk
+*.exe
+*.idb
+vc110.pdb
+
 
 # Compiled Dynamic libraries
 *.so
@@ -11,3 +19,8 @@
 *.lai
 *.la
 *.a
+
+# VS files
+*.opensdf
+*.sdf
+*.suo
