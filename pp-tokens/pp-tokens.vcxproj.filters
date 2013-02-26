@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="utf8">
+      <UniqueIdentifier>{963ae205-5b10-4733-89e0-b07f0bf1045f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utf8\encoder">
+      <UniqueIdentifier>{91d4821a-2d7d-4f96-b2b2-6203e32520d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utf8\decoder">
+      <UniqueIdentifier>{a6925aa1-726e-4a12-a945-24dd80a57c6a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utf8-encoder.hpp">
+      <Filter>utf8\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8-decoder.hpp">
+      <Filter>utf8\decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="octet.hpp">
+      <Filter>utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8_encoded_value.hpp">
+      <Filter>utf8\encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="conversions.hpp" />
+    <ClInclude Include="universal_character_system.hpp" />
+    <ClInclude Include="trigraph_system.hpp" />
+    <ClInclude Include="line_splicing_system.hpp" />
+    <ClInclude Include="comment_system.hpp" />
+    <ClInclude Include="lexical_analyzer.hpp" />
+    <ClInclude Include="lexical_helper.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="utf8-encoder.cpp">
+      <Filter>utf8\encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="utf8-decoder.cpp">
+      <Filter>utf8\decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="utf8_encoded_value.cpp">
+      <Filter>utf8\encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="conversions.cpp" />
+    <ClCompile Include="universal_character_system.cpp" />
+    <ClCompile Include="trigraph_system.cpp" />
+    <ClCompile Include="line_splicing_system.cpp" />
+    <ClCompile Include="comment_system.cpp" />
+    <ClCompile Include="lexical_analyzer.cpp" />
+    <ClCompile Include="lexical_helper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="utf8-encoder.inc">
+      <Filter>utf8\encoder</Filter>
+    </None>
+    <None Include="utf8-decoder.inc">
+      <Filter>utf8\decoder</Filter>
+    </None>
+  </ItemGroup>
+</Project>
