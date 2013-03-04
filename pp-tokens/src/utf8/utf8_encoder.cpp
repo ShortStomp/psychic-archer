@@ -17,24 +17,6 @@
 #include <bitset>
 
 
-psy::utf8::utf8_encoder::utf8_encoder(
-  void
-  )
-{
-  const std::uint32_t single_array[7] = { 0, 1, 2, 3, 4, 5, 6};
-  _single_octet_positions.assign(single_array, single_array + sizeof(single_array) / sizeof(single_array[0]));
-
-  const std::uint32_t double_array[11] = { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12};
-  _double_octet_positions.assign(double_array, double_array + sizeof(double_array) / sizeof(double_array[0]));
-
-  const std::uint32_t triple_array[16] = { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19};
-  _triple_octet_positions.assign(triple_array, triple_array + sizeof(triple_array) / sizeof(triple_array[0]));
-
-  const std::uint32_t quad_array[21] = { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 24, 25, 26};
-  _quadruple_octet_positions.assign(quad_array, quad_array + sizeof(quad_array) / sizeof(quad_array[0]));
-}
-
-
 psy::utf8::utf8_encoded_value
 psy::utf8::utf8_encoder::encode_single_octet(
   const std::uint64_t value
@@ -61,7 +43,7 @@ psy::utf8::utf8_encoder::encode_double_octet(
   double_octet.set(7, true);
   double_octet.set(6, false);
 
-  for(const auto it : _double_octet_positions) {
+  for(const auto it : psy::utf8::octet::double_octet_positions) {
     encode_value<16>(value, double_octet, it);
   }
 
@@ -88,7 +70,7 @@ psy::utf8::utf8_encoder::encode_triple_octet(
   triple_octet.set(7, true);
   triple_octet.set(6, false);
 
-  for(const auto it : _triple_octet_positions) {
+  for(const auto it : psy::utf8::octet::triple_octet_positions) {
     encode_value<24>(value, triple_octet, it);
   }
 
@@ -119,7 +101,7 @@ psy::utf8::utf8_encoder::encode_quadruple_octet(
   quadruple_octet.set(7, true);
   quadruple_octet.set(6, false);
 
-  for(const auto it : _quadruple_octet_positions) {
+  for(const auto it : psy::utf8::octet::quadruple_octet_positions) {
     encode_value<32>(value, quadruple_octet, it);
   }
 

@@ -29,22 +29,11 @@ namespace utf8
   class utf8_decoder
   {
     //
-    // members
-    std::vector<std::uint32_t> _single_octet_positions;
-    std::vector<std::uint32_t> _double_octet_positions;
-    std::vector<std::uint32_t> _triple_octet_positions;
-    std::vector<std::uint32_t> _quadruple_octet_positions;
-
-    //
     // methods
     template<std::uint32_t T>
-    std::uint32_t decode_value(const std::uint32_t encoded_value, std::vector<std::uint32_t> &x_positions) const;
+    std::uint32_t decode_value(const std::uint32_t encoded_value, const std::vector<std::uint32_t> &x_positions) const;
 
-  public:
-
-    //
-    // constructors
-    utf8_decoder(void);
+  public: 
 
     //
     // methods

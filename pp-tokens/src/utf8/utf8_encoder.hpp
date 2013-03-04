@@ -26,13 +26,6 @@ namespace utf8
   class utf8_encoder
   {
     //
-    // members
-    std::vector<std::uint32_t> _single_octet_positions;
-    std::vector<std::uint32_t> _double_octet_positions;
-    std::vector<std::uint32_t> _triple_octet_positions;
-    std::vector<std::uint32_t> _quadruple_octet_positions;
-
-    //
     // methods
     utf8_encoded_value encode_single_octet(std::uint64_t value) const;
     utf8_encoded_value encode_double_octet(std::uint64_t value) const;
@@ -43,11 +36,7 @@ namespace utf8
     void encode_value(std::uint64_t &value, std::bitset<T> &bitset, const std::uint32_t position) const;
 
   public:
-
-    //
-    // constructors
-    utf8_encoder(void);
-
+ 
     //
     // methods
     utf8_encoded_value encode_utf8(const std::uint64_t value) const;

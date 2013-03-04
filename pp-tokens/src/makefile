@@ -17,7 +17,6 @@ build_obj_files:
 	for DIR in $(DIRS); do (cd $$DIR; make CC=${CC} ARGS=${ARGS}); done
 	
 clean:
-	clear
 	\rm -f pp-tokens
 	\rm -f *.o
 	-for dir in $(DIRS); do (cd $$dir; \rm -rf *.o *~); done

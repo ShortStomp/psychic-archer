@@ -16,7 +16,7 @@ template<std::uint32_t T>
 std::uint32_t
 psy::utf8::utf8_decoder::decode_value(
   const std::uint32_t encoded_value,
-  std::vector<std::uint32_t> &x_positions
+  const std::vector<std::uint32_t> &x_positions
   ) const
 {
   std::bitset<T> encoded_bitset(encoded_value);
