@@ -17,12 +17,13 @@
 #include <utility>
 #include <vector>
 #include <unordered_set>
+#include <stdexcept>
 
-#include "trigraph_system.hpp"
-#include "line_splicing_system.hpp"
-#include "comment_system.hpp"
-#include "universal_character_system.hpp"
-#include "../utf8/utf8_decoder.hpp"
+#include "trigraph/trigraph_system.hpp"
+#include "linesplice/line_splicing_system.hpp"
+#include "comment/comment_system.hpp"
+#include "ucn/ucn.hpp"
+#include "utf8/decoder.hpp"
 #include "token_type.hpp"
 
 //
@@ -109,29 +110,61 @@ psy::lex::analyze(
 	const std::string &output_file
 	)
 {
-  psy::utf8::utf8_decoder decoder;
-  const auto decoded_file = decoder.decode_file(input_file);
+	std::ifstream file;
+	file.open(input_file, std::ios::binary|std::ios::in);
 
-  const auto ucnr = psy::lex::remove_all_ucn(decoded_file);
-  const auto trigraphs_rm = psy::lex::remove_trigraphs(ucnr);
-  auto linefeeds_rm = psy::lex::remove_backslashes_followed_by_linefeed(trigraphs_rm);
+	if(file.is_open() == false) {
+		throw std::runtime_error("Failed to open file " + input_file);
+	}
+
+	std::vector<unsigned char> buffer(4, 0);
+	utf8::decoder decoder;
+
+	while(file.good()) {
+	
+		//
+		// read character, so we can see how many octets are used to encode the unicode value.
+		file.read(reinterpret_cast<char*>(buffer.data()), 1);
+		
+		if(file.good() == false) {
+			//
+			// we have just read the end of the file
+			// notice buffer has not been changed.
+			break;
+		}
+
+		const auto bytes_required = decoder.bytes_required(buffer.front());
+		
+		if(bytes_required > 0) {
+			file.read(reinterpret_cast<char*>(&buffer[1]), bytes_required - 1);
+		}
+
+		const auto code_point = decoder.decode(buffer);
+	}
+	
+  //psy::utf8::utf8_decoder decoder;
+  //const auto decoded_file = decoder.decode_file(input_file);
+
+  //const auto ucnr = psy::lex::remove_all_ucn(decoded_file);
+  //const auto trigraphs_rm = psy::lex::remove_trigraphs(ucnr);
+  //auto linefeeds_rm = psy::lex::remove_backslashes_followed_by_linefeed(trigraphs_rm);
 
   //
   // if the file does not end in a linefeed add one.
-  if(linefeeds_rm.back() != '\n') {
-    linefeeds_rm.emplace_back('\n');
-  }
+  //if(linefeeds_rm.back() != '\n') {
+  //  linefeeds_rm.emplace_back('\n');
+  //}
 
-  const auto comments_removed = psy::lex::remove_comments(linefeeds_rm);
+  //const auto comments_removed = psy::lex::remove_comments(linefeeds_rm);
 
   std::wofstream outfile;
   outfile.open(output_file);
 
-  for(auto wc : comments_removed) {
-    if(wc < 120) {
-      outfile << static_cast<wchar_t>(wc);
-    }   
-  }   
+  //for(auto wc : comments_removed) {
+  //  if(wc < 120) {
+  //    outfile << static_cast<wchar_t>(wc);
+  //  }   
+  //}   
   outfile.flush();
   outfile.close();
 }

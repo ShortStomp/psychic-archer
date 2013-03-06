@@ -1,20 +1,21 @@
 
-build: lexical_helper.o comment_system.o line_splicing_system.o trigraph_system.o universal_character_system.o lexical_analyzer.o
+DIRS = ./utf8/
+OBJ_FILES := $(foreach dir, $(DIRS), $(wildcard $(dir)/*.o))
+
+build: lexical_helper.o lexical_analyzer.o
 
 lexical_helper.o:
 	${CC} ${ARGS} -c lexical_helper.cpp
-	
-comment_system.o:
-	${CC} ${ARGS} -c comment_system.cpp
 
-line_splicing_system.o:
-	${CC} ${ARGS} -c line_splicing_system.cpp
+lexical_analyzer.o: build_obj_files
+	${CC} ${ARGS} -c lexical_analyzer.cpp ${OBJ_FILES}
 
-trigraph_system.o:
-	${CC} ${ARGS} -c trigraph_system.cpp
 
-universal_character_system.o:
-	${CC} ${ARGS} -c universal_character_system.cpp
 
-lexical_analyzer.o:
-	${CC} ${ARGS} -c lexical_analyzer.cpp
+#
+# recursively call make in each subdirectory listed in "DIRS"
+build_obj_files:
+	for DIR in $(DIRS); do (cd $$DIR; make CC=${CC} ARGS=${ARGS}); done
+
+clean:
+	for dir in $(DIRS); do (cd $$dir; \rm -rf *.o *~); done

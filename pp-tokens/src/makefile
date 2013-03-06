@@ -2,7 +2,7 @@ CC = "g++"
 ARGS = -std=gnu++11 -Wall
 #LINKFLAGS = " "
 
-DIRS = ./lexical/ ./utf8/ ./conversions/
+DIRS = ./lexical/  ./conversions/
 OBJ_FILES := $(foreach dir, $(DIRS), $(wildcard $(dir)/*.o))
 
 build: main.o
