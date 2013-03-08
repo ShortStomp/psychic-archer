@@ -115,6 +115,8 @@ psy::lex::analyze(
 		throw std::runtime_error("Failed to open file " + input_file);
 	}
 
+	std::vector<std::uint32_t> codepoints;
+
 	std::vector<unsigned char> buffer(4, 0);
 	utf8::decoder decoder;
 
@@ -138,6 +140,7 @@ psy::lex::analyze(
 		}
 
 		const auto code_point = decoder.decode(buffer);
+		codepoints.emplace_back(code_point);
 	}
 	
   //psy::utf8::utf8_decoder decoder;

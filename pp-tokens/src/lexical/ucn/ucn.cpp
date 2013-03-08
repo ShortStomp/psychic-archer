@@ -17,6 +17,52 @@
 #include "../utf8/encoded_value.hpp"
 #include "ucn.hpp"
 
+
+unsigned int
+psy::lex::ucn::decoder::parse_ucn(
+	const std::uint32_t code_point
+	)
+{
+	constexpr const unsigned int slash_u_length = 2;
+
+	if(isxdigit(code_point) == false && code_point != '\\') {
+		//
+		// non-ucn character
+		_hex_count = 0;
+		return 0;
+	}
+	else if(code_point == '\\' && _hex_count > 0) {
+		//
+		// premature secondary '\\' character
+		_hex_count = 0;
+		return 0;
+	}
+	else if((_short_name == true) && (_hex_count == 3) && (isxdigit(code_point))) {
+		//
+		// successfully found a unicode short-name character
+		_hex_count = 0;
+		return slash_u_length + 4;
+	}
+	else if((_short_name == false) && (_hex_count == 7) && (isxdigit(code_point))) {
+		//
+		// successfully found unicode long-name character
+		_hex_count = 0;
+		return slash_u_length + 8;
+	}
+
+	
+
+	if(code_point == '\\' && _begin_slash == false) {
+		_begin_slash = true;
+	}
+	else if(_begin_slash == true && code_point == 'u') {
+		_short_name = true;
+	}
+
+	return 0;
+}
+
+/*
 std::vector<std::uint32_t>
 psy::lex::remove_all_ucn(
   const std::vector<std::uint32_t> &input
@@ -94,3 +140,4 @@ psy::lex::parse_ucn(
 
   return result;
 }
+*/

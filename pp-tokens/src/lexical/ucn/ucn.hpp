@@ -20,10 +20,30 @@ namespace psy
 {
 namespace lex
 {
+namespace ucn
+{
+	//
+	// class declaration
+	class decoder
+	{
+		//
+		// members
+		bool _begin_slash;
+		bool _short_name;
+		unsigned int _hex_count;
+
+	public:
+	
+		//
+		// methods
+		unsigned int parse_ucn(const std::uint32_t code_point);
+
+	};
   //
   // function declaration
-  std::vector<std::uint32_t> remove_all_ucn(const std::vector<std::uint32_t> &input);
-  std::vector<std::uint32_t> is_ucn(std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
-  std::vector<std::uint32_t> parse_ucn(const std::uint32_t count, std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
+  //std::vector<std::uint32_t> remove_all_ucn(const std::vector<std::uint32_t> &input);
+  //std::vector<std::uint32_t> is_ucn(std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
+  //std::vector<std::uint32_t> parse_ucn(const std::uint32_t count, std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
+}
 }
 }
