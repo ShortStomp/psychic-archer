@@ -11,20 +11,18 @@
   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   * IN THE SOFTWARE.
 */
-#include "lexical_analyzer.hpp"
+#include "lexical_helper.hpp"
 #include <iostream>
 #include <fstream>
 #include <utility>
-#include <vector>
+#include <map>
 #include <unordered_set>
 #include <stdexcept>
 
-#include "trigraph/trigraph_system.hpp"
-#include "linesplice/line_splicing_system.hpp"
-#include "comment/comment_system.hpp"
 #include "ucn/ucn.hpp"
 #include "utf8/decoder.hpp"
 #include "token_type.hpp"
+#include "lexical_analyzer.hpp"
 
 //
 // See C++ Standard 2.11 Identifiers and Appendix/Annex E.1
@@ -167,4 +165,130 @@ psy::lex::analyze(
   //}   
   outfile.flush();
   outfile.close();
+}
+
+
+std::vector<std::uint32_t>
+psy::lex::remove_comments(
+  const std::vector<std::uint32_t> &input
+  )
+{
+  std::vector<std::uint32_t> result;
+
+  for(std::vector<std::uint32_t>::const_iterator it = input.cbegin(); it != input.cend(); ++it) {
+
+    const bool enough_characters = (it + 1) != input.cend();
+    if(enough_characters && (*it == '/')) {
+
+      //
+      // entered state for finding a comment
+      if(lex::look_ahead(it + 1, input.cend()) == '/') {
+      //if(char_after_first_slash == '/') {
+        //
+        // read characters until we get a LF "\n"
+        while(*it != '\n') {
+          ++it;
+          lex::check_iterator(it, input.cend());
+        }
+        result.emplace_back(' ');
+      }
+      else if(lex::look_ahead(it + 1, input.cend()) == '*') {
+        //
+        // move iterator to character just after initial "/"
+        ++it;
+        
+        while(lex::look_ahead(it + 1, input.cend()) != '*' && lex::look_ahead(it + 2, input.cend()) != '\\') {
+          ++it;
+          lex::check_iterator(it, input.cend());
+        }
+        it += 2;
+        result.emplace_back(' ');
+      }
+      else {
+        result.emplace_back(*it);
+      }
+      continue;
+    }
+    
+    result.emplace_back(*it);
+  }
+
+  return result;
+}
+
+
+std::vector<std::uint32_t>
+psy::lex::remove_backslashes_followed_by_linefeed(
+  const std::vector<std::uint32_t> &input
+  )
+{
+  std::vector<std::uint32_t> result;
+
+  for(std::vector<std::uint32_t>::const_iterator it = input.cbegin(); it != input.cend(); ++it) {
+
+    const bool enough_characters = (it + 1) != input.cend();
+    if(enough_characters && (*it == '\\') && (*(it + 1) == '\n')) {
+      //
+      // Line Splicing: If you encounter a backslash followed by a linefeed, ignore it.
+      continue;
+    }
+    
+    result.emplace_back(*it);
+  }
+
+  return result;
+}
+
+
+std::vector<std::uint32_t>
+psy::lex::remove_trigraphs(
+  const std::vector<std::uint32_t> &input
+  )
+{
+  const std::uint32_t arr[9] = { '=', '/', '\'', '(', ')', '!', '<', '>', '-'};
+  std::vector<char> trigraph_chars;
+  trigraph_chars.assign(arr, arr + sizeof(arr) / sizeof(arr[0]));
+
+  std::map<std::string, uint32_t> trigraph_map;
+  trigraph_map[R".(??=_)."] = '#';
+  trigraph_map[R".(//)."] = '\\';
+  trigraph_map[R".(??')."] = '^';
+  trigraph_map[R".(??()."] = '[';
+  trigraph_map[R".(??))."] = ']';
+  trigraph_map[R".(??!)."] = '|';
+  trigraph_map[R".(??<)."] = '{';
+  trigraph_map[R".(??>)."] = '}';
+  trigraph_map[R".(??-)."] = '~';
+
+  std::vector<std::uint32_t> result;
+
+  for(std::vector<std::uint32_t>::const_iterator it = input.cbegin(); it != input.cend(); ++it) {
+
+    const bool enough_characters = ((it + 1) != input.cend()) && ((it + 2) != input.cend());
+    if(enough_characters == false) {
+      result.emplace_back(*it);
+      continue;
+    }
+
+    const auto third_digit_iter = std::find(trigraph_chars.cbegin(), trigraph_chars.cend(), lex::look_ahead(it + 2, input.cend()));
+    const bool third_digit_tri = third_digit_iter != trigraph_chars.cend();
+
+    if(lex::look_ahead(it, input.cend()) == '?' && lex::look_ahead(it + 1, input.cend()) == '?' && third_digit_tri) {
+      
+      const auto look_ahead_zero = static_cast<char>(*it);
+      const auto look_ahead_one = static_cast<char>(*(it + 1));
+
+      std::string three_digit_string(1, look_ahead_zero);
+      three_digit_string += look_ahead_one;
+      three_digit_string += lex::look_ahead(it + 2, input.cend());
+      it += 2;
+
+      result.emplace_back(trigraph_map.find(three_digit_string)->second);
+    }
+    else {
+      result.emplace_back(*it);
+    }
+  }
+
+  return result;
 }

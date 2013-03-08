@@ -1,15 +1,14 @@
-CXXFLAGS := -std=gnu++11 -Wall
+CXXFLAGS := -std=gnu++11 -Wall -g
 
-#SUBMAKEFILES :=
+SUBMAKEFILES := lexical/lexical.mk \
+	lexical/ucn/ucn.mk \
+	lexical/utf8/utf8.mk \
+	conversions/conversions.mk
 
 TARGET := pp-tokens
 
-#TGT_LDFLAGS := -L${TARGET_DIR}
-#TGT_LDLIBS  := -lanimals
-#TGT_PREREQS := libanimals.a
-
 SOURCES := main.cpp
 
-SRC_INCDIRS := \
+#SRC_INCDIRS := \
     conversions \
     lexical

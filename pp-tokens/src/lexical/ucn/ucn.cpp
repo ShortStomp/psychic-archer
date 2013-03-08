@@ -11,11 +11,11 @@
   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   * IN THE SOFTWARE.
 */
-#include "universal_character_system.hpp"
-#include "../conversions/conversions.hpp"
-#include "../utf8/octet.hpp"
-#include "../utf8/utf8_encoded_value.hpp"
 #include <cctype>
+#include "../../conversions/conversions.hpp"
+#include "../utf8/octet.hpp"
+#include "../utf8/encoded_value.hpp"
+#include "ucn.hpp"
 
 std::vector<std::uint32_t>
 psy::lex::remove_all_ucn(
@@ -35,7 +35,7 @@ psy::lex::remove_all_ucn(
 
       it += 4;
 
-      psy::utf8::utf8_encoded_value value(octet1, octet2, octet3, octet4);
+      psy::utf8::encoded_value value(octet1, octet2, octet3, octet4);
       result.emplace_back(value.value);
     }
     else {
