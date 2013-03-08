@@ -1,1 +1,1 @@
-sources := conversions.cpp
+SOURCES := conversions.cpp
