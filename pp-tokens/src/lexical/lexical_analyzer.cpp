@@ -249,16 +249,17 @@ psy::lex::remove_trigraphs(
   std::vector<char> trigraph_chars;
   trigraph_chars.assign(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
-  std::map<std::string, uint32_t> trigraph_map;
-  trigraph_map[R".(??=_)."] = '#';
-  trigraph_map[R".(//)."] = '\\';
-  trigraph_map[R".(??')."] = '^';
-  trigraph_map[R".(??()."] = '[';
-  trigraph_map[R".(??))."] = ']';
-  trigraph_map[R".(??!)."] = '|';
-  trigraph_map[R".(??<)."] = '{';
-  trigraph_map[R".(??>)."] = '}';
-  trigraph_map[R".(??-)."] = '~';
+  const std::map<std::string, uint32_t> trigraph_map = {
+  	{ R".(??=_).", '#' },
+  	{ R".(//).", '\\' },
+  	{ R".(??').", '^' },
+  	{ R".(??().", '[' },
+  	{ R".(??)).", ']' },
+  	{ R".(??!).", '|' },
+  	{ R".(??<).", '{' },
+  	{ R".(??>).", '}' },
+  	{ R".(??-).", '~' } 
+	};
 
   std::vector<std::uint32_t> result;
 
