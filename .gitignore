@@ -10,6 +10,13 @@
 *.idb
 vc110.pdb
 
+#
+# build directory
+build/
+
+#
+# executable files
+pp-tokens
 
 # Compiled Dynamic libraries
 *.so
