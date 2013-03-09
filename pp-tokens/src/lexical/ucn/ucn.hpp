@@ -28,15 +28,22 @@ namespace ucn
 	{
 		//
 		// members
-		bool _begin_slash;
-		bool _short_name;
-		unsigned int _hex_count;
+		std::vector<std::uint32_t> _ucn_buffer;
+
+		//
+		// methods
+		bool check_first_digit(const std::uint32_t code_point) const;
+		bool check_second_digit(const std::uint32_t code_point) const;
+		bool check_third_plus_digit(const std::uint32_t code_point) const;
+		bool is_shortname(const std::uint32_t code_point) const;
+
+		std::uint32_t convert_ucn(const std::vector<uint32_t> &ucn_digits) const;
 
 	public:
 	
 		//
 		// methods
-		unsigned int parse_ucn(const std::uint32_t code_point);
+		std::vector<std::uint32_t> parse_ucn(const std::uint32_t code_point);
 
 	};
   //

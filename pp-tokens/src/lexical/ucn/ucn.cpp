@@ -12,54 +12,90 @@
   * IN THE SOFTWARE.
 */
 #include <cctype>
+#include <vector>
+#include <algorithm>
 #include "../../conversions/conversions.hpp"
 #include "../utf8/octet.hpp"
 #include "../utf8/encoded_value.hpp"
 #include "ucn.hpp"
 
+const unsigned int slash_u_length = 2;
 
-unsigned int
+const std::vector<std::uint32_t> valid_second_digits = { 'u', 'U' };
+
+
+bool
+psy::lex::ucn::decoder::check_first_digit(
+	 const std::uint32_t code_point
+	) const
+{
+	return (_ucn_buffer.empty() == false) || ((_ucn_buffer.empty() == true) && (code_point == '\\'));
+}
+
+
+bool
+psy::lex::ucn::decoder::check_second_digit(
+	const std::uint32_t code_point
+	) const
+{
+	const auto it = std::find(valid_second_digits.cbegin(), valid_second_digits.cend(), code_point);
+	return (_ucn_buffer.size() != 1) || (it != valid_second_digits.cend());
+}
+
+
+bool
+psy::lex::ucn::decoder::check_third_plus_digit(
+	const std::uint32_t code_point
+	) const
+{
+	return (_ucn_buffer.size() < 2) || (isxdigit(code_point) == true);
+}
+
+
+bool
+psy::lex::ucn::decoder::is_shortname(
+	const std::uint32_t code_point
+	) const
+{
+	return (_ucn_buffer.size() > 1) && (_ucn_buffer.at(1) == 'u');
+}
+
+
+std::vector<std::uint32_t>
 psy::lex::ucn::decoder::parse_ucn(
 	const std::uint32_t code_point
 	)
 {
-	constexpr const unsigned int slash_u_length = 2;
+	std::vector<std::uint32_t> result;
 
-	if(isxdigit(code_point) == false && code_point != '\\') {
+	if(!check_first_digit(code_point) || !check_second_digit(code_point) || !check_third_plus_digit(code_point)) { 
 		//
-		// non-ucn character
-		_hex_count = 0;
-		return 0;
-	}
-	else if(code_point == '\\' && _hex_count > 0) {
-		//
-		// premature secondary '\\' character
-		_hex_count = 0;
-		return 0;
-	}
-	else if((_short_name == true) && (_hex_count == 3) && (isxdigit(code_point))) {
-		//
-		// successfully found a unicode short-name character
-		_hex_count = 0;
-		return slash_u_length + 4;
-	}
-	else if((_short_name == false) && (_hex_count == 7) && (isxdigit(code_point))) {
-		//
-		// successfully found unicode long-name character
-		_hex_count = 0;
-		return slash_u_length + 8;
+		// invalid character detected
+		result = _ucn_buffer;
+		_ucn_buffer.clear();
 	}
 
-	
+	//
+	// copy the character into our internal buffer
+	_ucn_buffer.emplace_back(code_point);
 
-	if(code_point == '\\' && _begin_slash == false) {
-		_begin_slash = true;
-	}
-	else if(_begin_slash == true && code_point == 'u') {
-		_short_name = true;
-	}
 
-	return 0;
+	if(_ucn_buffer.size() == (slash_u_length + 4) && is_shortname(code_point)) {
+		//
+		// unicode short-character name
+		_ucn_buffer.clear();
+		const auto converted = convert_ucn(_ucn_buffer);
+		result.emplace_back(converted);
+	}
+	else if(_ucn_buffer.size() == (slash_u_length + 8) && (is_shortname(code_point) == false)) {
+		//
+		// unicode long-character name
+		_ucn_buffer.clear();
+		const auto converted = convert_ucn(_ucn_buffer);
+		result.emplace_back(converted);
+	}	
+
+	return result;
 }
 
 /*
@@ -118,26 +154,21 @@ psy::lex::is_ucn(
 
   return result;
 }
+*/
 
-
-std::vector<std::uint32_t>
-psy::lex::parse_ucn(
-	const std::uint32_t count,
-  std::vector<std::uint32_t>::const_iterator it,
-  const std::vector<std::uint32_t>::const_iterator end
-  )
+std::uint32_t
+psy::lex::ucn::decoder::convert_ucn(
+	const std::vector<uint32_t> &ucn_digits
+  ) const
 {
+	const auto count = (ucn_digits.size() == slash_u_length + 4 ? 4 : 8);
   std::vector<std::uint32_t> result;
-
-  for(auto i(0U); i < count; ++i) {
-    ++it;
-    if((it == end) || isxdigit(*it) == false) {
-      result.clear();
-      break;
-    }
-    result.emplace_back(psy::conv::hex_to_decimal(*it));
-  }
+ 
+	for(const auto ucn : ucn_digits) {
+		if(isxdigit(ucn) == true) {
+			result   (psy::conv::hex_to_decimal(ucn));
+		}
+	} 
 
   return result;
 }
-*/
