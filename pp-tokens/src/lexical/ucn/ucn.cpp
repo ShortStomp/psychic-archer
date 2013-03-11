@@ -48,7 +48,7 @@ psy::lex::ucn::decoder::check_third_plus_digit(
 	const std::uint32_t code_point
 	) const
 {
-	return (_ucn_buffer.size() < 2) || (isxdigit(code_point) == true);
+	return (_ucn_buffer.size() < 2) || (isxdigit(code_point) != 0);
 }
 
 
@@ -89,83 +89,25 @@ psy::lex::ucn::decoder::decode(
 	}
 	else if(_ucn_buffer.size() == (slash_u_length + 8) && (is_shortname(code_point) == false)) {
 		//
-		// unicode long-character name
-		_ucn_buffer.clear();
+		// unicode long-character name	
 		const auto converted = convert_ucn(_ucn_buffer);
 		result.emplace_back(converted);
+		_ucn_buffer.clear();
 	}	
 
 	return result;
 }
 
-/*
-std::vector<std::uint32_t>
-psy::lex::remove_all_ucn(
-  const std::vector<std::uint32_t> &input
-  )
-{
-  std::vector<std::uint32_t> result;
-
-  for(std::vector<std::uint32_t>::const_iterator it = input.cbegin(); it != input.cend(); ++it) {
-
-    const auto upcoming_unc = is_ucn(it, input.cend());
-    if(*it == '\\' && upcoming_unc.empty() == false) {
-      const psy::utf8::octet octet1(upcoming_unc.front());
-      const psy::utf8::octet octet2(upcoming_unc.at(1));
-      const psy::utf8::octet octet3(upcoming_unc.at(2));
-      const psy::utf8::octet octet4(upcoming_unc.at(3));
-
-      it += 4;
-
-      psy::utf8::encoded_value value(octet1, octet2, octet3, octet4);
-      result.emplace_back(value.value);
-    }
-    else {
-      result.emplace_back(*it);
-    }
-  }
-
-  return result;
-}
-
-
-std::vector<std::uint32_t>
-psy::lex::is_ucn(
-  std::vector<std::uint32_t>::const_iterator it,
-  const std::vector<std::uint32_t>::const_iterator end
-  )
-{
-  std::vector<std::uint32_t> result;
-
-  if(it == end || (it + 1) == end) {
-    return result;
-  }
-
-  const auto iter_to_next = ++it;
-  if(*iter_to_next == 'u') {
-    //
-    // read four digits
-    return parse_ucn(4, it, end);
-  }
-
-  else if(*iter_to_next == 'U') {
-    return parse_ucn(8, it, end);
-  }
-
-  return result;
-}
-*/
 
 std::uint32_t
 psy::lex::ucn::decoder::convert_ucn(
 	const std::vector<uint32_t> &ucn_digits
   ) const
 {
-	//1const auto count = (ucn_digits.size() == slash_u_length + 4 ? 4 : 8);
-  std::vector<std::uint32_t> result;
+	std::vector<std::uint32_t> result;
  
 	for(const auto ucn : ucn_digits) {
-		if(isxdigit(ucn) == true) {
+		if(isxdigit(ucn) != 0) {
 			//result   (psy::conv::hex_to_decimal(ucn));
 		}
 	} 
