@@ -43,7 +43,7 @@ psy::utf8::encoded_value::encoded_value(
 psy::utf8::encoded_value::encoded_value(
   const octet octet1,
   const octet octet2
-  ) : value(octet1.value | (octet2.value << CHAR_BIT)),
+  ) : value(octet2.value | (octet1.value << CHAR_BIT)),
   octet_count(2)
 {
 }
@@ -53,7 +53,7 @@ psy::utf8::encoded_value::encoded_value(
   const octet octet1,
   const octet octet2,
   const octet octet3
-  ) : value(octet1.value | (octet2.value << CHAR_BIT) | (octet3.value << (2 * CHAR_BIT))),
+  ) : value(octet3.value | (octet2.value << CHAR_BIT) | (octet1.value << (2 * CHAR_BIT))),
   octet_count(3)
 {
 
@@ -65,8 +65,8 @@ psy::utf8::encoded_value::encoded_value(
   const octet octet2,
   const octet octet3,
   const octet octet4
-  ) : value(octet1.value | (octet2.value << CHAR_BIT) | (octet3.value << (2 * CHAR_BIT)) | (octet4.value << (3 * CHAR_BIT))),
-  octet_count(3)
+  ) : value(octet4.value | (octet3.value << CHAR_BIT) | (octet2.value << (2 * CHAR_BIT)) | (octet1.value << (3 * CHAR_BIT))),
+  octet_count(4)
 {
 
 }

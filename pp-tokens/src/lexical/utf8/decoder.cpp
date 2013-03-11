@@ -19,6 +19,13 @@
 #include <bitset>
 
 
+psy::utf8::decoder::decoder(
+	void
+	) : _bytes_required(0U)
+{
+}
+
+
 std::uint32_t
 psy::utf8::decoder::decode_utf8(
   const psy::utf8::encoded_value encoded_value
@@ -48,26 +55,31 @@ psy::utf8::decoder::decode_utf8(
 
 unsigned int
 psy::utf8::decoder::bytes_required(
-	const std::uint32_t utf8_encoded_value
+	const unsigned char byte
 	) const
 {
 	//
-	// assume single-octet
+	// declare return value
 	unsigned int result{1U};
-
-	if((utf8_encoded_value & 0xE0) == 0xC) {
+	
+	if((byte & 0x80) == 0x00) {
 		//
-		// double-octet
+		// single-octet (no more bytes required)
+		// (result was initialized to zero)
+	}
+	else if((byte & 0xE0) == 0xC0) {
+		//
+		// double-octet (one more byte required)
 		result = 2U;
 	}
-	else if((utf8_encoded_value & 0xF0) == 0xE0) {
+	else if((byte & 0xF0) == 0xE0) {
 		//
-		// triple-octet
+		// triple-octet (two more bytes required)
 		result = 3U;
 	}
 	else {
 		//
-		// quadruple-octet
+		// quadruple-octet (three more bytes required)
 		result = 4U;
 	}
 
@@ -76,34 +88,34 @@ psy::utf8::decoder::bytes_required(
 
 
 std::uint32_t
-psy::utf8::decoder::decode(
-	const std::vector<unsigned char> &bytes
-	) const
+psy::utf8::decoder::decode_internal_buffer(
+	void
+	)
 {
-	std::uint32_t result{0U};
+	std::uint32_t result;
 
-	if(bytes.size() == 1) {
+	if(_internal_buffer.size() == 1) {
   	//
     // single octet
-    const psy::utf8::octet octet1(bytes.front());
+    const psy::utf8::octet octet1(_internal_buffer.front());
     const psy::utf8::encoded_value encoded_utf(octet1);
     result = decode_utf8(encoded_utf);
   }
-	else if(bytes.size() == 2) {
+	else if(_internal_buffer.size() == 2) {
 		//
 		// double-octet		
-    psy::utf8::octet octet1(bytes.front());
-    psy::utf8::octet octet2(bytes.at(1));
+    psy::utf8::octet octet1(_internal_buffer.front());
+    psy::utf8::octet octet2(_internal_buffer.at(1));
       
 		const psy::utf8::encoded_value encoded_utf(octet1, octet2);
     result = decode_utf8(encoded_utf);
   }
-	else if(bytes.size() == 3) {
+	else if(_internal_buffer.size() == 3) {
     //
     // triple octet
-    const psy::utf8::octet octet1(bytes.front());
-    const psy::utf8::octet octet2(bytes.at(1));
-    const psy::utf8::octet octet3(bytes.at(2));
+    const psy::utf8::octet octet1(_internal_buffer.front());
+    const psy::utf8::octet octet2(_internal_buffer.at(1));
+    const psy::utf8::octet octet3(_internal_buffer.at(2));
       
     const psy::utf8::encoded_value encoded_utf(octet1, octet2, octet3);
     result = decode_utf8(encoded_utf);
@@ -111,14 +123,50 @@ psy::utf8::decoder::decode(
   else {
     //
     // quadruple octet
-    const psy::utf8::octet octet1(bytes.front());
-    const psy::utf8::octet octet2(bytes.at(1));
-    const psy::utf8::octet octet3(bytes.at(2));
-    const psy::utf8::octet octet4(bytes.at(3));
+    const psy::utf8::octet octet1(_internal_buffer.front());
+    const psy::utf8::octet octet2(_internal_buffer.at(1));
+    const psy::utf8::octet octet3(_internal_buffer.at(2));
+    const psy::utf8::octet octet4(_internal_buffer.at(3));
       
     const psy::utf8::encoded_value encoded_utf(octet1, octet2, octet3, octet4);
     result = decode_utf8(encoded_utf);
   }
 
+	//
+	// reset the internal buffer
+	_internal_buffer.clear();
+
   return result;
+}
+
+
+std::vector<std::uint32_t>
+psy::utf8::decoder::decode(
+	const unsigned char byte
+	)
+{
+	std::vector<std::uint32_t> result;
+
+	if(_internal_buffer.size() == 0U) {
+		//
+		// if the internal buffer is zero, we need to calculate how many more bytes are required
+		_bytes_required = bytes_required(byte);
+	}
+
+	//
+	// add 'byte' to the internal buffer for later use
+	_internal_buffer.emplace_back(byte);
+
+	//
+	// update number of bytes required
+	_bytes_required = (_bytes_required > 0U) ? (_bytes_required - 1U) : 0U;
+
+	if(_bytes_required == 0U) {
+		//
+		// internal buffer has correct number bytes
+		const auto buffer_decoded = decode_internal_buffer();
+		result.emplace_back(buffer_decoded);
+	}
+
+	return result;
 }

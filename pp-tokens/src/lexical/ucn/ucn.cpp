@@ -161,14 +161,15 @@ psy::lex::ucn::decoder::convert_ucn(
 	const std::vector<uint32_t> &ucn_digits
   ) const
 {
-	const auto count = (ucn_digits.size() == slash_u_length + 4 ? 4 : 8);
+	//1const auto count = (ucn_digits.size() == slash_u_length + 4 ? 4 : 8);
   std::vector<std::uint32_t> result;
  
 	for(const auto ucn : ucn_digits) {
 		if(isxdigit(ucn) == true) {
-			result   (psy::conv::hex_to_decimal(ucn));
+			//result   (psy::conv::hex_to_decimal(ucn));
 		}
 	} 
 
-  return result;
+	return 0;
+//  return result;
 }

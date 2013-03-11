@@ -117,14 +117,15 @@ psy::lex::analyze(
 
 	std::vector<std::uint32_t> codepoints;
 
-	std::vector<unsigned char> buffer(4, 0);
+	unsigned char buffer = '0';
+	//std::vector<unsigned char> buffer(1, 0);
 	utf8::decoder decoder;
 
 	while(file.good()) {
 	
 		//
 		// read character, so we can see how many octets are used to encode the unicode value.
-		file.read(reinterpret_cast<char*>(buffer.data()), 1);
+		file.read(reinterpret_cast<char*>(&buffer), 1);
 		
 		if(file.good() == false) {
 			//
@@ -133,14 +134,20 @@ psy::lex::analyze(
 			break;
 		}
 
-		const auto bytes_required = decoder.bytes_required(buffer.front());
+		//const auto bytes_required = decoder.bytes_required(buffer.front());
 		
-		if(bytes_required > 0) {
-			file.read(reinterpret_cast<char*>(&buffer[1]), bytes_required - 1);
+		//if(bytes_required > 0) {
+		//	file.read(reinterpret_cast<char*>(&buffer[1]), bytes_required - 1);
+		//}
+
+		const auto utf8_decoded = decoder.decode(buffer);
+		if(utf8_decoded.empty() == true) {
+			//
+			// no code points were returned because the decoder SM needs more bytes
+			continue;
 		}
 
-		const auto code_point = decoder.decode(buffer);
-		codepoints.emplace_back(code_point);
+		codepoints.emplace_back(utf8_decoded.front());
 	}
 	
   //psy::utf8::utf8_decoder decoder;

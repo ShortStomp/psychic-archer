@@ -13,9 +13,6 @@
 */
 #pragma once
 #include <cstdint>
-#include <bitset>
-#include <algorithm>
-#include <string>
 #include <vector>
 #include "encoded_value.hpp"
 //
@@ -28,18 +25,29 @@ namespace utf8
 	// class declaration
 	class decoder
 	{
+		//
+		// members
+		unsigned int _bytes_required;
+		std::vector<std::uint32_t> _internal_buffer;
+	
   	//
   	// methods
-		std::uint32_t decode_utf8(const psy::utf8::encoded_value encoded_value) const;
+		unsigned int bytes_required(const unsigned char byte) const;
+		std::uint32_t decode_internal_buffer(void);		
+		std::uint32_t decode_utf8(const psy::utf8::encoded_value encoded_value) const;	
 		
   	template<std::uint32_t T>
   	std::uint32_t decode_value(const std::uint32_t encoded_value, const std::vector<std::uint32_t> &x_positions) const;
 
 	public:
+
+		//
+		// constructors
+		decoder(void);
+
 		//
 		// methods
-		std::uint32_t decode(const std::vector<unsigned char> &bytes) const;
-		unsigned int 	bytes_required(const std::uint32_t utf8_encoded_value) const;
+		std::vector<std::uint32_t> decode(const unsigned char byte);
 	}; 
 }
 }
