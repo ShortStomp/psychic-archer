@@ -115,11 +115,9 @@ psy::lex::analyze(
 		throw std::runtime_error("Failed to open file " + input_file);
 	}
 
-	std::vector<std::uint32_t> codepoints;
-
 	unsigned char buffer = '0';
-	//std::vector<unsigned char> buffer(1, 0);
-	utf8::decoder decoder;
+	utf8::decoder utf8_decoder;
+	ucn::decoder ucn_decoder;
 
 	while(file.good()) {
 	
@@ -134,20 +132,19 @@ psy::lex::analyze(
 			break;
 		}
 
-		//const auto bytes_required = decoder.bytes_required(buffer.front());
-		
-		//if(bytes_required > 0) {
-		//	file.read(reinterpret_cast<char*>(&buffer[1]), bytes_required - 1);
-		//}
-
-		const auto utf8_decoded = decoder.decode(buffer);
-		if(utf8_decoded.empty() == true) {
+		auto codepoints = utf8_decoder.decode(buffer);
+		if(codepoints.empty() == true) {
 			//
 			// no code points were returned because the decoder SM needs more bytes
 			continue;
 		}
 
-		codepoints.emplace_back(utf8_decoded.front());
+		//
+		// pass the code-points to the ucn pipeline stage
+		for(const auto cp : codepoints) {
+			codepoints = ucn_decoder.decode(cp);
+		}
+//		codepoints.emplace_back(utf8_decoded.front());
 	}
 	
   //psy::utf8::utf8_decoder decoder;

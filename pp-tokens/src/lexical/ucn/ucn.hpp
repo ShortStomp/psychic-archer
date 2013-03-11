@@ -43,7 +43,7 @@ namespace ucn
 	
 		//
 		// methods
-		std::vector<std::uint32_t> parse_ucn(const std::uint32_t code_point);
+		std::vector<std::uint32_t> decode(const std::uint32_t code_point);
 
 	};
   //

@@ -34,7 +34,7 @@ psy::utf8::decoder::decode_utf8(
   std::uint32_t result(0U);
 
   if(encoded_value.octet_count == 1) {
-    result = decode_value<16>(encoded_value.value, psy::utf8::octet::single_octet_positions);
+    result = decode_value<8>(encoded_value.value, psy::utf8::octet::single_octet_positions);
   }
   else if(encoded_value.octet_count == 2) {
     result = decode_value<16>(encoded_value.value, psy::utf8::octet::double_octet_positions);

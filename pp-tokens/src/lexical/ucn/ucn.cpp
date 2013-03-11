@@ -62,7 +62,7 @@ psy::lex::ucn::decoder::is_shortname(
 
 
 std::vector<std::uint32_t>
-psy::lex::ucn::decoder::parse_ucn(
+psy::lex::ucn::decoder::decode(
 	const std::uint32_t code_point
 	)
 {
