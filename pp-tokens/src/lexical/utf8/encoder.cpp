@@ -113,12 +113,12 @@ encode_quadruple_octet(
 
 std::vector<psy::utf8::utf8_encoded>
 psy::utf8::encoder::encode(
-	const std::vector<combined_byte> &bytes
-	)
+  const std::vector<combined_byte> &bytes
+  )
 {
-	std::vector<utf8_encoded> result;
+  std::vector<utf8_encoded> result;
 
-	return result;
+  return result;
 }
 
 /*

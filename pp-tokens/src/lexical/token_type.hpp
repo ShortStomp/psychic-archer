@@ -18,19 +18,19 @@ namespace psy
 {
 namespace lex
 {
-	enum token_type
-	{
-		whitespace_sequence = 0,
-		new_line,
-		header_name,
-		identifier,
-		pp_number,
-		character_literal,
-		user_defined_character_literal,
-		string_literal,
-		user_defined_string_literal,
-		preprocessing_op_or_punc,
-		non_whitespace_character
-	};
+  enum token_type
+  {
+    whitespace_sequence = 0,
+    new_line,
+    header_name,
+    identifier,
+    pp_number,
+    character_literal,
+    user_defined_character_literal,
+    string_literal,
+    user_defined_string_literal,
+    preprocessing_op_or_punc,
+    non_whitespace_character
+  };
 }
 }

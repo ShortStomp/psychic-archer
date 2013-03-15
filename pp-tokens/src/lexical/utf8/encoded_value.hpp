@@ -27,7 +27,7 @@ namespace utf8
     //
     // members
     std::uint32_t value;
-		std::uint32_t octet_count;
+    std::uint32_t octet_count;
 
   public:
     //

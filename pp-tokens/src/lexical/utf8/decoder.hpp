@@ -23,46 +23,46 @@ namespace psy
 {
 namespace utf8
 {
-	//
-	// class declaration
-	class decoder
-	{
-		//
-		// members
-		unsigned int _required;
-		std::vector<utf8_encoded> _buffer;
+  //
+  // class declaration
+  class decoder
+  {
+    //
+    // members
+    unsigned int _required;
+    std::vector<utf8_encoded> _buffer;
 
-		unsigned int _bytes_required;
-		std::vector<std::uint32_t> _internal_buffer;
-	
-  	//
-  	// methods
-		unsigned int bytes_required(const unsigned char byte) const;
-		//std::uint32_t decode_internal_buffer(void);
-		//std::uint32_t decode_utf8(const psy::utf8::encoded_value encoded_value) const;	
-		
-  	template<std::uint32_t T>
-  	std::uint32_t decode_value(const std::uint32_t encoded_value, const std::vector<std::uint32_t> &x_positions) const;
+    unsigned int _bytes_required;
+    std::vector<std::uint32_t> _internal_buffer;
+  
+    //
+    // methods
+    unsigned int bytes_required(const unsigned char byte) const;
+    //std::uint32_t decode_internal_buffer(void);
+    //std::uint32_t decode_utf8(const psy::utf8::encoded_value encoded_value) const;  
+    
+    template<std::uint32_t T>
+    std::uint32_t decode_value(const std::uint32_t encoded_value, const std::vector<std::uint32_t> &x_positions) const;
 
-	public:
+  public:
 
-		//
-		// constructors
-		decoder(void);
+    //
+    // constructors
+    decoder(void);
 
-		//
-		// methods
-	//	std::vector<std::uint32_t> decode(const unsigned char byte);
+    //
+    // methods
+  //  std::vector<std::uint32_t> decode(const unsigned char byte);
 
-		void read(const combined_byte &encoded_byte);
-		void reset();
+    void read(const combined_byte &encoded_byte);
+    void reset();
 
-		bool ready() const;
-		lex::codepoint get_codepoint() const;
-		std::vector<unsigned char> get_bytes() const;
+    bool ready() const;
+    lex::codepoint get_codepoint() const;
+    std::vector<unsigned char> get_bytes() const;
 
-		lex::codepoint decode_to_codepoint(const std::vector<utf8_encoded> &values);
-	}; 
+    lex::codepoint decode_to_codepoint(const std::vector<utf8_encoded> &values);
+  }; 
 }
 }
 #include "decoder.inc"

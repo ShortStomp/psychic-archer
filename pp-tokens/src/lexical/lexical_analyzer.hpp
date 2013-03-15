@@ -21,9 +21,9 @@ namespace psy
 {
 namespace lex
 {
-	void analyze(const std::string &input_file, const std::string &output_file);
-	std::vector<std::uint32_t> remove_comments(const std::vector<std::uint32_t> &input);
-	std::vector<std::uint32_t> remove_backslashes_followed_by_linefeed(const std::vector<std::uint32_t> &input);
-	std::vector<std::uint32_t> remove_trigraphs(const std::vector<std::uint32_t> &input);
+  void analyze(const std::string &input_file, const std::string &output_file);
+  std::vector<std::uint32_t> remove_comments(const std::vector<std::uint32_t> &input);
+  std::vector<std::uint32_t> remove_backslashes_followed_by_linefeed(const std::vector<std::uint32_t> &input);
+  std::vector<std::uint32_t> remove_trigraphs(const std::vector<std::uint32_t> &input);
 }
 }

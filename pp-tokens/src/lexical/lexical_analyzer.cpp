@@ -29,139 +29,139 @@
 // See C++ Standard 2.11 Identifiers and Appendix/Annex E.1
 const std::vector<std::pair<int, int>> annex_e1_allowed_ranges =
 {
-	{0xA8,0xA8},
-	{0xAA,0xAA},
-	{0xAD,0xAD},
-	{0xAF,0xAF},
-	{0xB2,0xB5},
-	{0xB7,0xBA},
-	{0xBC,0xBE},
-	{0xC0,0xD6},
-	{0xD8,0xF6},
-	{0xF8,0xFF},
-	{0x100,0x167F},
-	{0x1681,0x180D},
-	{0x180F,0x1FFF},
-	{0x200B,0x200D},
-	{0x202A,0x202E},
-	{0x203F,0x2040},
-	{0x2054,0x2054},
-	{0x2060,0x206F},
-	{0x2070,0x218F},
-	{0x2460,0x24FF},
-	{0x2776,0x2793},
-	{0x2C00,0x2DFF},
-	{0x2E80,0x2FFF},
-	{0x3004,0x3007},
-	{0x3021,0x302F},
-	{0x3031,0x303F},
-	{0x3040,0xD7FF},
-	{0xF900,0xFD3D},
-	{0xFD40,0xFDCF},
-	{0xFDF0,0xFE44},
-	{0xFE47,0xFFFD},
-	{0x10000,0x1FFFD},
-	{0x20000,0x2FFFD},
-	{0x30000,0x3FFFD},
-	{0x40000,0x4FFFD},
-	{0x50000,0x5FFFD},
-	{0x60000,0x6FFFD},
-	{0x70000,0x7FFFD},
-	{0x80000,0x8FFFD},
-	{0x90000,0x9FFFD},
-	{0xA0000,0xAFFFD},
-	{0xB0000,0xBFFFD},
-	{0xC0000,0xCFFFD},
-	{0xD0000,0xDFFFD},
-	{0xE0000,0xEFFFD}
+  {0xA8,0xA8},
+  {0xAA,0xAA},
+  {0xAD,0xAD},
+  {0xAF,0xAF},
+  {0xB2,0xB5},
+  {0xB7,0xBA},
+  {0xBC,0xBE},
+  {0xC0,0xD6},
+  {0xD8,0xF6},
+  {0xF8,0xFF},
+  {0x100,0x167F},
+  {0x1681,0x180D},
+  {0x180F,0x1FFF},
+  {0x200B,0x200D},
+  {0x202A,0x202E},
+  {0x203F,0x2040},
+  {0x2054,0x2054},
+  {0x2060,0x206F},
+  {0x2070,0x218F},
+  {0x2460,0x24FF},
+  {0x2776,0x2793},
+  {0x2C00,0x2DFF},
+  {0x2E80,0x2FFF},
+  {0x3004,0x3007},
+  {0x3021,0x302F},
+  {0x3031,0x303F},
+  {0x3040,0xD7FF},
+  {0xF900,0xFD3D},
+  {0xFD40,0xFDCF},
+  {0xFDF0,0xFE44},
+  {0xFE47,0xFFFD},
+  {0x10000,0x1FFFD},
+  {0x20000,0x2FFFD},
+  {0x30000,0x3FFFD},
+  {0x40000,0x4FFFD},
+  {0x50000,0x5FFFD},
+  {0x60000,0x6FFFD},
+  {0x70000,0x7FFFD},
+  {0x80000,0x8FFFD},
+  {0x90000,0x9FFFD},
+  {0xA0000,0xAFFFD},
+  {0xB0000,0xBFFFD},
+  {0xC0000,0xCFFFD},
+  {0xD0000,0xDFFFD},
+  {0xE0000,0xEFFFD}
 };
 
 //
 // See C++ standard 2.11 Identifiers and Appendix/Annex E.2
 const std::vector<std::pair<int, int>> annex_e2_disallowed_initially =
 {
-	{0x300,0x36F},
-	{0x1DC0,0x1DFF},
-	{0x20D0,0x20FF},
-	{0xFE20,0xFE2F}
+  {0x300,0x36F},
+  {0x1DC0,0x1DFF},
+  {0x20D0,0x20FF},
+  {0xFE20,0xFE2F}
 };
 
 //
 // See C++ standard 2.13 Operators and punctuators
 const std::unordered_set<std::string> digraph_identifier_like_operators =
 {
-	"new", "delete", "and", "and_eq", "bitand",
-	"bitor", "compl", "not", "not_eq", "or",
-	"or_eq", "xor", "xor_eq"
+  "new", "delete", "and", "and_eq", "bitand",
+  "bitor", "compl", "not", "not_eq", "or",
+  "or_eq", "xor", "xor_eq"
 };
 
 //
 // See `simple-escape-sequence` grammar
 const std::unordered_set<int> simple_escape_sequence_code_points =
 {
-	'\'', '"', '?', '\\', 'a', 'b', 'f', 'n', 'r', 't', 'v'
+  '\'', '"', '?', '\\', 'a', 'b', 'f', 'n', 'r', 't', 'v'
 };
 
 
 void
 psy::lex::analyze(
-	const std::string &input_file,
-	const std::string &output_file
-	)
+  const std::string &input_file,
+  const std::string &output_file
+  )
 {
-	std::ifstream file;
-	file.open(input_file, std::ios::binary|std::ios::in);
+  std::ifstream file;
+  file.open(input_file, std::ios::binary|std::ios::in);
 
-	if(file.is_open() == false) {
-		throw std::runtime_error("Failed to open file " + input_file);
-	}
+  if(file.is_open() == false) {
+    throw std::runtime_error("Failed to open file " + input_file);
+  }
 
-	unsigned char buffer = '0';
-	utf8::decoder utf8_decoder;
-	//ucn::decoder ucn_decoder;
+  unsigned char buffer = '0';
+  utf8::decoder utf8_decoder;
+  //ucn::decoder ucn_decoder;
 
-	while(file.good()) {
-	
-		//
-		// read character, so we can see how many octets are used to encode the unicode value.
-		file.read(reinterpret_cast<char*>(&buffer), 1);
-		
-		if(file.good() == false) {
-			//
-			// we have just read the end of the file
-			// notice buffer has not been changed.
-			break;
-		}
+  while(file.good()) {
+  
+    //
+    // read character, so we can see how many octets are used to encode the unicode value.
+    file.read(reinterpret_cast<char*>(&buffer), 1);
+    
+    if(file.good() == false) {
+      //
+      // we have just read the end of the file
+      // notice buffer has not been changed.
+      break;
+    }
 
-		utf8::combined_byte encoded_byte(buffer);
-		utf8_decoder.read(encoded_byte);
+    utf8::combined_byte encoded_byte(buffer);
+    utf8_decoder.read(encoded_byte);
 
-		if(utf8_decoder.ready() == false) {
-			//
-			// decoder is not ready, decoder needs more bytes
-			continue;
-		}	
-	
-		//
-		// get the decoded value from the decoder
-		const auto codepoint = utf8_decoder.get_codepoint();
+    if(utf8_decoder.ready() == false) {
+      //
+      // decoder is not ready, decoder needs more bytes
+      continue;
+    } 
+  
+    //
+    // get the decoded value from the decoder
+    const auto codepoint = utf8_decoder.get_codepoint();
 
-/*		auto codepoints = utf8_decoder.decode(buffer);
-		if(codepoints.empty() == true) {
-			//
-			// no code points were returned because the decoder SM needs more bytes
-			continue;
-		}
+/*    auto codepoints = utf8_decoder.decode(buffer);
+    if(codepoints.empty() == true) {
+      //
+      // no code points were returned because the decoder SM needs more bytes
+      continue;
+    }
 
-		//
-		// pass the code-points to the ucn pipeline stage
-		for(const auto cp : codepoints) {
-			codepoints = ucn_decoder.decode(cp);
-		}
-//		codepoints.emplace_back(utf8_decoded.front());
-	}
+    //
+    // pass the code-points to the ucn pipeline stage
+    for(const auto cp : codepoints) {
+      codepoints = ucn_decoder.decode(cp);
+    }
+//    codepoints.emplace_back(utf8_decoded.front());
+  }
 */
-	}	
+  } 
   //psy::utf8::utf8_decoder decoder;
   //const auto decoded_file = decoder.decode_file(input_file);
 
@@ -272,16 +272,16 @@ psy::lex::remove_trigraphs(
   trigraph_chars.assign(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
   const std::map<std::string, uint32_t> trigraph_map = {
-  	{ R".(??=_).", '#' },
-  	{ R".(//).", '\\' },
-  	{ R".(??').", '^' },
-  	{ R".(??().", '[' },
-  	{ R".(??)).", ']' },
-  	{ R".(??!).", '|' },
-  	{ R".(??<).", '{' },
-  	{ R".(??>).", '}' },
-  	{ R".(??-).", '~' } 
-	};
+    { R".(??=_).", '#' },
+    { R".(//).", '\\' },
+    { R".(??').", '^' },
+    { R".(??().", '[' },
+    { R".(??)).", ']' },
+    { R".(??!).", '|' },
+    { R".(??<).", '{' },
+    { R".(??>).", '}' },
+    { R".(??-).", '~' } 
+  };
 
   std::vector<std::uint32_t> result;
 

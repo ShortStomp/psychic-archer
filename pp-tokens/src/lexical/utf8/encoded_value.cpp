@@ -15,8 +15,8 @@
 #include <climits>
 
 psy::utf8::encoded_value::encoded_value(
-	void
-	) : value(0U), octet_count(0U)
+  void
+  ) : value(0U), octet_count(0U)
 {
 }
 

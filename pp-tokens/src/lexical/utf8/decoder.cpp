@@ -20,8 +20,8 @@
 
 
 psy::utf8::decoder::decoder(
-	void
-	) : _required(0U)
+  void
+  ) : _required(0U)
 {
 }
 
@@ -55,62 +55,62 @@ psy::utf8::decoder::decode_utf8(
 
 unsigned int
 psy::utf8::decoder::bytes_required(
-	const unsigned char byte
-	) const
+  const unsigned char byte
+  ) const
 {
-	//
-	// declare return value
-	unsigned int result{1U};
-	
-	if((byte & 0x80) == 0x00) {
-		//
-		// single-octet (no more bytes required)
-		// (result was initialized to zero)
-	}
-	else if((byte & 0xE0) == 0xC0) {
-		//
-		// double-octet (one more byte required)
-		result = 2U;
-	}
-	else if((byte & 0xF0) == 0xE0) {
-		//
-		// triple-octet (two more bytes required)
-		result = 3U;
-	}
-	else {
-		//
-		// quadruple-octet (three more bytes required)
-		result = 4U;
-	}
+  //
+  // declare return value
+  unsigned int result{1U};
+  
+  if((byte & 0x80) == 0x00) {
+    //
+    // single-octet (no more bytes required)
+    // (result was initialized to zero)
+  }
+  else if((byte & 0xE0) == 0xC0) {
+    //
+    // double-octet (one more byte required)
+    result = 2U;
+  }
+  else if((byte & 0xF0) == 0xE0) {
+    //
+    // triple-octet (two more bytes required)
+    result = 3U;
+  }
+  else {
+    //
+    // quadruple-octet (three more bytes required)
+    result = 4U;
+  }
 
-	return result;	
+  return result;  
 }
 
 
 std::uint32_t
 psy::utf8::decoder::decode_internal_buffer(
-	void
-	)
+  void
+  )
 {
-	std::uint32_t result;
+  std::uint32_t result;
 
-	if(_internal_buffer.size() == 1) {
-  	//
+  if(_internal_buffer.size() == 1) {
+    //
     // single octet
     const psy::utf8::octet octet1(_internal_buffer.front());
     const psy::utf8::encoded_value encoded_utf(octet1);
     result = decode_utf8(encoded_utf);
   }
-	else if(_internal_buffer.size() == 2) {
-		//
-		// double-octet		
+  else if(_internal_buffer.size() == 2) {
+    //
+    // double-octet   
     psy::utf8::octet octet1(_internal_buffer.front());
     psy::utf8::octet octet2(_internal_buffer.at(1));
       
-		const psy::utf8::encoded_value encoded_utf(octet1, octet2);
+    const psy::utf8::encoded_value encoded_utf(octet1, octet2);
     result = decode_utf8(encoded_utf);
   }
-	else if(_internal_buffer.size() == 3) {
+  else if(_internal_buffer.size() == 3) {
     //
     // triple octet
     const psy::utf8::octet octet1(_internal_buffer.front());
@@ -132,9 +132,9 @@ psy::utf8::decoder::decode_internal_buffer(
     result = decode_utf8(encoded_utf);
   }
 
-	//
-	// reset the internal buffer
-	_internal_buffer.clear();
+  //
+  // reset the internal buffer
+  _internal_buffer.clear();
 
   return result;
 }
@@ -142,78 +142,78 @@ psy::utf8::decoder::decode_internal_buffer(
 
 std::vector<std::uint32_t>
 psy::utf8::decoder::decode(
-	const unsigned char byte
-	)
+  const unsigned char byte
+  )
 {
-	std::vector<std::uint32_t> result;
+  std::vector<std::uint32_t> result;
 
-	if(_internal_buffer.size() == 0U) {
-		//
-		// if the internal buffer is zero, we need to calculate how many more bytes are required
-		_bytes_required = bytes_required(byte);
-	}
+  if(_internal_buffer.size() == 0U) {
+    //
+    // if the internal buffer is zero, we need to calculate how many more bytes are required
+    _bytes_required = bytes_required(byte);
+  }
 
-	//
-	// add 'byte' to the internal buffer for later use
-	_internal_buffer.emplace_back(byte);
+  //
+  // add 'byte' to the internal buffer for later use
+  _internal_buffer.emplace_back(byte);
 
-	//
-	// update number of bytes required
-	_bytes_required = (_bytes_required > 0U) ? (_bytes_required - 1U) : 0U;
+  //
+  // update number of bytes required
+  _bytes_required = (_bytes_required > 0U) ? (_bytes_required - 1U) : 0U;
 
-	if(_bytes_required == 0U) {
-		//
-		// internal buffer has correct number bytes
-		const auto buffer_decoded = decode_internal_buffer();
-		result.emplace_back(buffer_decoded);
-	}
+  if(_bytes_required == 0U) {
+    //
+    // internal buffer has correct number bytes
+    const auto buffer_decoded = decode_internal_buffer();
+    result.emplace_back(buffer_decoded);
+  }
 
-	return result;
+  return result;
 }
 */
 
 void
 psy::utf8::decoder::read(
-	const combined_byte &encoded_byte
-	)
+  const combined_byte &encoded_byte
+  )
 {
-	_buffer.emplace_back(encoded_byte);
+  _buffer.emplace_back(encoded_byte);
 }
 
 
 void
 psy::utf8::decoder::reset(
-	)
+  )
 {
-	_buffer.clear();
-	_required = 0;
+  _buffer.clear();
+  _required = 0;
 }
 
 
 bool
 psy::utf8::decoder::ready(
-	void
-	)
-	const
+  void
+  )
+  const
 {
-	return _buffer.size() == _required;
+  return _buffer.size() == _required;
 }
 
 
 psy::lex::codepoint
 psy::utf8::decoder::get_codepoint(
-	) const
+  ) const
 {
-	lex::codepoint result;
+  lex::codepoint result;
 
-	return result;	
+  return result;  
 }
 
 
 std::vector<unsigned char>
 psy::utf8::decoder::get_bytes(
-	) const
+  ) const
 {
-	std::vector<unsigned char> result;
-	return result;
+  std::vector<unsigned char> result;
+  return result;
 }

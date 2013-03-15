@@ -15,7 +15,7 @@
 
 //
 // static-variable initialization
-std::vector<std::uint32_t> psy::utf8::octet::single_octet_positions = 		{ 0, 1, 2, 3, 4, 5, 6 };
-std::vector<std::uint32_t> psy::utf8::octet::double_octet_positions = 		{ 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12 };
-std::vector<std::uint32_t> psy::utf8::octet::triple_octet_positions = 		{ 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19 };
-std::vector<std::uint32_t> psy::utf8::octet::quadruple_octet_positions = 	{ 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 24, 25, 26 };
+std::vector<std::uint32_t> psy::utf8::octet::single_octet_positions =     { 0, 1, 2, 3, 4, 5, 6 };
+std::vector<std::uint32_t> psy::utf8::octet::double_octet_positions =     { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12 };
+std::vector<std::uint32_t> psy::utf8::octet::triple_octet_positions =     { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19 };
+std::vector<std::uint32_t> psy::utf8::octet::quadruple_octet_positions =  { 0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 21, 24, 25, 26 };

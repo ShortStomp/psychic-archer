@@ -19,6 +19,6 @@ namespace psy
 {
 namespace conv
 {
-    std::uint32_t hex_to_decimal(const std::uint32_t hex);
+  std::uint32_t hex_to_decimal(const std::uint32_t hex);
 }
 }

@@ -22,14 +22,14 @@ namespace utf8
 {
   struct octet
   {
-		//
-		// static-members
-		static std::vector<std::uint32_t> single_octet_positions;
-		static std::vector<std::uint32_t> double_octet_positions;
-		static std::vector<std::uint32_t> triple_octet_positions;
-		static std::vector<std::uint32_t> quadruple_octet_positions;
+    //
+    // static-members
+    static std::vector<std::uint32_t> single_octet_positions;
+    static std::vector<std::uint32_t> double_octet_positions;
+    static std::vector<std::uint32_t> triple_octet_positions;
+    static std::vector<std::uint32_t> quadruple_octet_positions;
     
-		//
+    //
     // members
     std::uint8_t value;
 

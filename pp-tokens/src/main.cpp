@@ -18,13 +18,13 @@
 
 int main(int argc, char *argv[])
 {
-	try {
-		/* const auto tokens = */psy::lex::analyze("../test.bin", "../out.bin");
-	}
-	catch(std::exception &e) {
-		std::cout << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
+  try {
+    /* const auto tokens = */psy::lex::analyze("../test.bin", "../out.bin");
+  }
+  catch(std::exception &e) {
+    std::cout << e.what() << std::endl;
+    return EXIT_FAILURE;
+  }
 
-	return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
