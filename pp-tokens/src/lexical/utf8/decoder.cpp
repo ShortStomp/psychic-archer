@@ -21,12 +21,12 @@
 
 psy::utf8::decoder::decoder(
 	void
-	) : _bytes_required(0U)
+	) : _required(0U)
 {
 }
 
 
-std::uint32_t
+/*std::uint32_t
 psy::utf8::decoder::decode_utf8(
   const psy::utf8::encoded_value encoded_value
   ) const
@@ -168,5 +168,52 @@ psy::utf8::decoder::decode(
 		result.emplace_back(buffer_decoded);
 	}
 
+	return result;
+}
+*/
+
+void
+psy::utf8::decoder::read(
+	const combined_byte &encoded_byte
+	)
+{
+	_buffer.emplace_back(encoded_byte);
+}
+
+
+void
+psy::utf8::decoder::reset(
+	)
+{
+	_buffer.clear();
+	_required = 0;
+}
+
+
+bool
+psy::utf8::decoder::ready(
+	void
+	)
+	const
+{
+	return _buffer.size() == _required;
+}
+
+
+psy::lex::codepoint
+psy::utf8::decoder::get_codepoint(
+	) const
+{
+	lex::codepoint result;
+
+	return result;	
+}
+
+
+std::vector<unsigned char>
+psy::utf8::decoder::get_bytes(
+	) const
+{
+	std::vector<unsigned char> result;
 	return result;
 }

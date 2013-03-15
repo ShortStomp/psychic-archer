@@ -15,6 +15,8 @@
 #include <bitset>
 #include <vector>
 #include "encoded_value.hpp"
+#include "combined_byte.hpp"
+#include "utf8_encoded.hpp"
 //
 // namespace declarations
 namespace psy
@@ -27,11 +29,6 @@ namespace utf8
   {
     //
     // methods
-    encoded_value encode_single_octet(std::uint64_t value) const;
-    encoded_value encode_double_octet(std::uint64_t value) const;
-    encoded_value encode_triple_octet(std::uint64_t value) const;
-    encoded_value encode_quadruple_octet(std::uint64_t value) const;
-
     template<std::uint32_t T>
     void encode_value(std::uint64_t &value, std::bitset<T> &bitset, const std::uint32_t position) const;
 
@@ -40,6 +37,7 @@ namespace utf8
     //
     // methods
     encoded_value encode_utf8(const std::uint64_t value) const;
+		std::vector<utf8_encoded> encode(const std::vector<combined_byte> &bytes);
   };
 }
 }

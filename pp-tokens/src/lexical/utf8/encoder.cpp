@@ -16,25 +16,25 @@
 #include <stdexcept>
 #include <bitset>
 
-
+/*
 psy::utf8::encoded_value
-psy::utf8::encoder::encode_single_octet(
+encode_single_octet(
   const std::uint64_t value
-  ) const
+  )
 {
   std::bitset<8> single_octet(value);
   single_octet.set(7, false);
 
   const auto bitset_long = single_octet.to_ulong();
   const auto bitset_uint32 = static_cast<std::uint32_t>(bitset_long);
-  return encoded_value(bitset_uint32, 1);
+  return psy::utf8::encoded_value(bitset_uint32, 1);
 }
 
 
 psy::utf8::encoded_value
-psy::utf8::encoder::encode_double_octet(
+encode_double_octet(
   std::uint64_t value
-  ) const
+  )
 {
   std::bitset<16> double_octet;
   double_octet.set(15, true);
@@ -44,19 +44,19 @@ psy::utf8::encoder::encode_double_octet(
   double_octet.set(6, false);
 
   for(const auto it : psy::utf8::octet::double_octet_positions) {
-    encode_value<16>(value, double_octet, it);
+    psy::utf8::encode_value<16>(value, double_octet, it);
   }
 
   const auto bitset_long = double_octet.to_ulong();
   const auto bitset_uint32 = static_cast<std::uint32_t>(bitset_long);
-  return encoded_value(bitset_uint32, 2);
+  return psy::utf8::encoded_value(bitset_uint32, 2);
 }
 
 
 psy::utf8::encoded_value
-psy::utf8::encoder::encode_triple_octet(
+encode_triple_octet(
   std::uint64_t value
-  ) const
+  )
 {
   std::bitset<24> triple_octet;
   triple_octet.set(23, true);
@@ -76,14 +76,14 @@ psy::utf8::encoder::encode_triple_octet(
 
   const auto bitset_long = triple_octet.to_ulong();
   const auto bitset_uint32 = static_cast<std::uint32_t>(bitset_long);
-  return encoded_value(bitset_uint32, 3);
+  return psy::utf8::encoded_value(bitset_uint32, 3);
 }
 
 
 psy::utf8::encoded_value
-psy::utf8::encoder::encode_quadruple_octet(
+encode_quadruple_octet(
   std::uint64_t value
-  ) const
+  )
 {
   std::bitset<32> quadruple_octet;
   quadruple_octet.set(31, true);
@@ -107,10 +107,21 @@ psy::utf8::encoder::encode_quadruple_octet(
 
   const auto bitset_long = quadruple_octet.to_ulong();
   const auto bitset_uint32 = static_cast<std::uint32_t>(bitset_long);
-  return encoded_value(bitset_uint32, 4);
+  return psy::utf8::encoded_value(bitset_uint32, 4);
+}
+*/
+
+std::vector<psy::utf8::utf8_encoded>
+psy::utf8::encoder::encode(
+	const std::vector<combined_byte> &bytes
+	)
+{
+	std::vector<utf8_encoded> result;
+
+	return result;
 }
 
-
+/*
 psy::utf8::encoded_value
 psy::utf8::encoder::encode_utf8(
   const std::uint64_t value
@@ -135,4 +146,4 @@ psy::utf8::encoder::encode_utf8(
   }
 
   return result;
-}
+}*/

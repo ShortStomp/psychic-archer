@@ -18,8 +18,6 @@
 // namespace declaration
 namespace psy
 {
-namespace lex
-{
 namespace ucn
 {
 	//
@@ -28,29 +26,24 @@ namespace ucn
 	{
 		//
 		// members
-		std::vector<std::uint32_t> _ucn_buffer;
+//		std::vector<unsigned char> _ucn_buffer;
 
 		//
 		// methods
-		bool check_first_digit(const std::uint32_t code_point) const;
-		bool check_second_digit(const std::uint32_t code_point) const;
-		bool check_third_plus_digit(const std::uint32_t code_point) const;
-		bool is_shortname(const std::uint32_t code_point) const;
+//		bool check_first_digit(const std::uint32_t code_point) const;
+//		bool check_second_digit(const std::uint32_t code_point) const;
+//		bool check_third_plus_digit(const std::uint32_t code_point) const;
+//		bool is_shortname(const std::uint32_t code_point) const;
 
-		std::uint32_t convert_ucn(const std::vector<uint32_t> &ucn_digits) const;
+//		std::uint32_t convert_ucn(void) const;
 
 	public:
 	
 		//
 		// methods
-		std::vector<std::uint32_t> decode(const std::uint32_t code_point);
+//		std::vector<std::uint32_t> decode(const std::uint32_t code_point);
 
 	};
-  //
-  // function declaration
-  //std::vector<std::uint32_t> remove_all_ucn(const std::vector<std::uint32_t> &input);
-  //std::vector<std::uint32_t> is_ucn(std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
-  //std::vector<std::uint32_t> parse_ucn(const std::uint32_t count, std::vector<std::uint32_t>::const_iterator it, const std::vector<std::uint32_t>::const_iterator end);
-}
+  
 }
 }

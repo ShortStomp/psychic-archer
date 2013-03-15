@@ -19,7 +19,8 @@
 #include <unordered_set>
 #include <stdexcept>
 
-#include "ucn/ucn.hpp"
+//#include "ucn/ucn.hpp"
+#include "utf8/combined_byte.hpp"
 #include "utf8/decoder.hpp"
 #include "token_type.hpp"
 #include "lexical_analyzer.hpp"
@@ -117,7 +118,7 @@ psy::lex::analyze(
 
 	unsigned char buffer = '0';
 	utf8::decoder utf8_decoder;
-	ucn::decoder ucn_decoder;
+	//ucn::decoder ucn_decoder;
 
 	while(file.good()) {
 	
@@ -132,7 +133,20 @@ psy::lex::analyze(
 			break;
 		}
 
-		auto codepoints = utf8_decoder.decode(buffer);
+		utf8::combined_byte encoded_byte(buffer);
+		utf8_decoder.read(encoded_byte);
+
+		if(utf8_decoder.ready() == false) {
+			//
+			// decoder is not ready, decoder needs more bytes
+			continue;
+		}	
+	
+		//
+		// get the decoded value from the decoder
+		const auto codepoint = utf8_decoder.get_codepoint();
+
+/*		auto codepoints = utf8_decoder.decode(buffer);
 		if(codepoints.empty() == true) {
 			//
 			// no code points were returned because the decoder SM needs more bytes
@@ -146,7 +160,8 @@ psy::lex::analyze(
 		}
 //		codepoints.emplace_back(utf8_decoded.front());
 	}
-	
+*/
+	}	
   //psy::utf8::utf8_decoder decoder;
   //const auto decoded_file = decoder.decode_file(input_file);
 
