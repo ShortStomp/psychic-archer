@@ -12,24 +12,34 @@
   * IN THE SOFTWARE.
 */
 #pragma once
+#include <climits>
 #include <bitset>
 #include <algorithm>
+#include "../codepoint.hpp"
 
 template<std::uint32_t T>
-std::uint32_t
+psy::lex::codepoint
 psy::utf8::decoder::decode_value(
-  const std::uint32_t encoded_value,
   const std::vector<std::uint32_t> &x_positions
   ) const
 {
+  const auto val0 = _buffer.at(0).get().get();
+  const auto val1 = _buffer.size() > 1 ? _buffer.at(1).get().get() : 0;
+  const auto val2 = _buffer.size() > 2 ? _buffer.at(2).get().get() : 0;
+  const auto val3 = _buffer.size() > 3 ? _buffer.at(3).get().get() : 0;
+  const auto encoded_value = ((((val3 << (CHAR_BIT * 3)) | (val2 << (CHAR_BIT * 2))) | (val1 << CHAR_BIT)) | (val0)); 
+
   std::bitset<T> encoded_bitset(encoded_value);
-  std::bitset<T> result;
+  std::bitset<T> bit_buffer;
   for(auto i(0U), j(0U); i < encoded_bitset.size(); ++i) {
     if(std::find(x_positions.cbegin(), x_positions.cend(), i) != x_positions.cend()) {
-      result[j] = encoded_bitset[i];
+      bit_buffer[j] = encoded_bitset[i];
       ++j;
     }
   }
 
-  return static_cast<std::uint32_t>(result.to_ulong());
+  lex::codepoint result;
+  result.Value = static_cast<std::int32_t>(bit_buffer.to_ulong());
+  
+  return result;
 }

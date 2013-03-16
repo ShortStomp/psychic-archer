@@ -36,7 +36,7 @@ namespace utf8
  
     //
     // methods
-    encoded_value encode_utf8(const std::uint64_t value) const;
+    //encoded_value encode_utf8(const std::uint64_t value) const;
 		std::vector<utf8_encoded> encode(const std::vector<combined_byte> &bytes);
   };
 }

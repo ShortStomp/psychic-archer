@@ -133,7 +133,8 @@ psy::lex::analyze(
       break;
     }
 
-    utf8::combined_byte encoded_byte(buffer);
+    const utf8::combined_byte combined_byte(buffer);
+    const utf8::utf8_encoded encoded_byte(combined_byte);
     utf8_decoder.read(encoded_byte);
 
     if(utf8_decoder.ready() == false) {
@@ -145,6 +146,10 @@ psy::lex::analyze(
     //
     // get the decoded value from the decoder
     const auto codepoint = utf8_decoder.get_codepoint();
+
+    //
+    // reset the utf8 decoder
+    utf8_decoder.reset();
 
 /*    auto codepoints = utf8_decoder.decode(buffer);
     if(codepoints.empty() == true) {

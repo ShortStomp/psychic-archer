@@ -11,10 +11,10 @@
   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   * IN THE SOFTWARE.
 */
-#include "encoder.hpp"
 #include "encoded_value.hpp"
 #include <stdexcept>
 #include <bitset>
+#include "encoder.hpp"
 
 /*
 psy::utf8::encoded_value

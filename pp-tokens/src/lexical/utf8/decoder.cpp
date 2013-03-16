@@ -11,12 +11,45 @@
   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   * IN THE SOFTWARE.
 */
-#include "decoder.hpp"
 #include "octet.hpp"
 #include <stdexcept>
 #include <vector>
 #include <fstream>
 #include <bitset>
+#include "decoder.hpp"
+
+
+unsigned int
+bytes_required(
+  const unsigned char byte
+  )
+{
+  //
+  // declare return value
+  unsigned int result{1U};
+  
+  if((byte & 0x80) == 0x00) {
+    //
+    // single-octet (one byte required)
+  }
+  else if((byte & 0xE0) == 0xC0) {
+    //
+    // double-octet (two bytes required)
+    result = 2U;
+  }
+  else if((byte & 0xF0) == 0xE0) {
+    //
+    // triple-octet (three bytes required)
+    result = 3U;
+  }
+  else {
+    //
+    // quadruple-octet (four bytes required)
+    result = 4U;
+  }
+
+  return result;  
+}
 
 
 psy::utf8::decoder::decoder(
@@ -26,24 +59,24 @@ psy::utf8::decoder::decoder(
 }
 
 
-/*std::uint32_t
-psy::utf8::decoder::decode_utf8(
-  const psy::utf8::encoded_value encoded_value
+psy::lex::codepoint
+psy::utf8::decoder::internal_decode(
+  void
   ) const
 { 
-  std::uint32_t result(0U);
+  lex::codepoint result; 
 
-  if(encoded_value.octet_count == 1) {
-    result = decode_value<8>(encoded_value.value, psy::utf8::octet::single_octet_positions);
+  if(_required == 1) {
+    result = decode_value<8>(psy::utf8::octet::single_octet_positions);
   }
-  else if(encoded_value.octet_count == 2) {
-    result = decode_value<16>(encoded_value.value, psy::utf8::octet::double_octet_positions);
+  else if(_required == 2) {
+    result = decode_value<16>(psy::utf8::octet::double_octet_positions);
   }
-  else if(encoded_value.octet_count == 3) {
-    result = decode_value<24>(encoded_value.value, psy::utf8::octet::triple_octet_positions);
+  else if(_required == 3) {
+    result = decode_value<24>(psy::utf8::octet::triple_octet_positions);
   }
-  else if(encoded_value.octet_count == 4) {
-    result = decode_value<32>(encoded_value.value, psy::utf8::octet::quadruple_octet_positions);
+  else if(_required == 4) {
+    result = decode_value<32>(psy::utf8::octet::quadruple_octet_positions);
   }
   else {
     throw std::runtime_error("could not decode utf8 value.");
@@ -53,40 +86,7 @@ psy::utf8::decoder::decode_utf8(
 }
 
 
-unsigned int
-psy::utf8::decoder::bytes_required(
-  const unsigned char byte
-  ) const
-{
-  //
-  // declare return value
-  unsigned int result{1U};
-  
-  if((byte & 0x80) == 0x00) {
-    //
-    // single-octet (no more bytes required)
-    // (result was initialized to zero)
-  }
-  else if((byte & 0xE0) == 0xC0) {
-    //
-    // double-octet (one more byte required)
-    result = 2U;
-  }
-  else if((byte & 0xF0) == 0xE0) {
-    //
-    // triple-octet (two more bytes required)
-    result = 3U;
-  }
-  else {
-    //
-    // quadruple-octet (three more bytes required)
-    result = 4U;
-  }
-
-  return result;  
-}
-
-
+/*
 std::uint32_t
 psy::utf8::decoder::decode_internal_buffer(
   void
@@ -174,9 +174,13 @@ psy::utf8::decoder::decode(
 
 void
 psy::utf8::decoder::read(
-  const combined_byte &encoded_byte
+  const utf8_encoded &encoded_byte
   )
 {
+  if(_required == 0) {
+    const auto raw_character = encoded_byte.get().get();
+    _required = bytes_required(raw_character); 
+  }
   _buffer.emplace_back(encoded_byte);
 }
 
@@ -204,9 +208,11 @@ psy::lex::codepoint
 psy::utf8::decoder::get_codepoint(
   ) const
 {
-  lex::codepoint result;
+  if(ready() == false) {
+    throw std::runtime_error("Utf8-decoder get_codepoint() called when ready() is false");
+  }
 
-  return result;  
+  return internal_decode();  
 }
 
 
