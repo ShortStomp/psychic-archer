@@ -174,14 +174,15 @@ psy::utf8::decoder::decode(
 
 void
 psy::utf8::decoder::read(
-  const utf8_encoded &encoded_byte
+  const encoded_byte &enc_byte
   )
 {
   if(_required == 0) {
-    const auto raw_character = encoded_byte.get().get();
+    const auto raw_character = enc_byte.get().get();
     _required = bytes_required(raw_character); 
   }
-  _buffer.emplace_back(encoded_byte);
+
+  _buffer.emplace_back(enc_byte);
 }
 
 

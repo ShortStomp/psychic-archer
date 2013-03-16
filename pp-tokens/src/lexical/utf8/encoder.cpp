@@ -11,7 +11,6 @@
   * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
   * IN THE SOFTWARE.
 */
-#include "encoded_value.hpp"
 #include <stdexcept>
 #include <bitset>
 #include "encoder.hpp"
@@ -111,12 +110,12 @@ encode_quadruple_octet(
 }
 */
 
-std::vector<psy::utf8::utf8_encoded>
+std::vector<psy::utf8::encoded_byte>
 psy::utf8::encoder::encode(
   const std::vector<combined_byte> &bytes
   )
 {
-  std::vector<utf8_encoded> result;
+  std::vector<encoded_byte> result;
 
   return result;
 }

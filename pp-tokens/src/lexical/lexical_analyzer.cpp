@@ -134,8 +134,8 @@ psy::lex::analyze(
     }
 
     const utf8::combined_byte combined_byte(buffer);
-    const utf8::utf8_encoded encoded_byte(combined_byte);
-    utf8_decoder.read(encoded_byte);
+    const utf8::encoded_byte enc_byte(combined_byte);
+    utf8_decoder.read(enc_byte);
 
     if(utf8_decoder.ready() == false) {
       //

@@ -14,7 +14,7 @@
 #pragma once
 #include <cstdint>
 #include <vector>
-#include "utf8_encoded.hpp"
+#include "encoded_byte.hpp"
 #include "../codepoint.hpp"
 //
 // namespace declarations
@@ -29,7 +29,7 @@ namespace utf8
     //
     // members
     unsigned int _required;
-    std::vector<utf8_encoded> _buffer;
+    std::vector<encoded_byte> _buffer;
   
     //
     // methods
@@ -46,7 +46,7 @@ namespace utf8
 
     //
     // methods 
-    void read(const utf8_encoded &encoded_byte);
+    void read(const encoded_byte &encoded_byte);
     void reset();
 
     bool ready() const;

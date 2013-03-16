@@ -18,7 +18,6 @@
 #include "../utf8/decoder.hpp"
 #include "../utf8/octet.hpp"
 #include "../utf8/encoder.hpp"
-#include "../utf8/encoded_value.hpp"
 #include "ucn.hpp"
 
 /*const unsigned int slash_u_length = 2;

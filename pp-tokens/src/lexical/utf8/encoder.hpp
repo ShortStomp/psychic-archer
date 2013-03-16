@@ -14,9 +14,8 @@
 #pragma once
 #include <bitset>
 #include <vector>
-#include "encoded_value.hpp"
 #include "combined_byte.hpp"
-#include "utf8_encoded.hpp"
+#include "encoded_byte.hpp"
 //
 // namespace declarations
 namespace psy
@@ -36,8 +35,7 @@ namespace utf8
  
     //
     // methods
-    //encoded_value encode_utf8(const std::uint64_t value) const;
-		std::vector<utf8_encoded> encode(const std::vector<combined_byte> &bytes);
+		std::vector<encoded_byte> encode(const std::vector<combined_byte> &bytes);
   };
 }
 }
