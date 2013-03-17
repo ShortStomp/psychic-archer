@@ -1,0 +1,1712 @@
+g++ -o build/pp-tokens/lexical/ucn/ucn.o -c -MD -std=gnu++11 -Wall -g lexical/ucn/ucn.cpp
+lexical/ucn/ucn.cpp: In function ‘bool check_first_digit(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:34:24: error: no match for ‘operator==’ in ‘code_point == '\\'’
+lexical/ucn/ucn.cpp: In function ‘bool check_third_plus_digit(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:53:29: error: cannot convert ‘const psy::lex::codepoint’ to ‘int’ for argument ‘1’ to ‘int isxdigit(int)’
+lexical/ucn/ucn.cpp: In function ‘bool is_shortname(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:62:24: error: no match for ‘operator==’ in ‘code_point == 'u'’
+lexical/ucn/ucn.cpp: At global scope:
+lexical/ucn/ucn.cpp:184:1: error: ‘lex’ does not name a type
+lexical/ucn/ucn.cpp:194:13: error: ‘utf8’ was not declared in this scope
+lexical/ucn/ucn.cpp:194:13: note: suggested alternative:
+In file included from lexical/ucn/../utf8/encoded_byte.hpp:15:0,
+                 from lexical/ucn/../utf8/decoder.hpp:17,
+                 from lexical/ucn/ucn.cpp:19:
+lexical/ucn/../utf8/combined_byte.hpp:20:1: note:   ‘psy::utf8’
+lexical/ucn/ucn.cpp:194:31: error: template argument 1 is invalid
+lexical/ucn/ucn.cpp:194:31: error: template argument 2 is invalid
+lexical/ucn/ucn.cpp:195:1: error: prototype for ‘int psy::ucn::decoder::get_encoded_bytes() const’ does not match any in class ‘psy::ucn::decoder’
+In file included from lexical/ucn/ucn.cpp:22:0:
+lexical/ucn/ucn.hpp:52:37: error: candidate is: std::vector<psy::utf8::encoded_byte> psy::ucn::decoder::get_encoded_bytes() const
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h: In instantiation of ‘_RandomAccessIterator std::__find(_RandomAccessIterator, _RandomAccessIterator, const _Tp&, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<const unsigned int*, std::vector<unsigned int> >; _Tp = psy::lex::codepoint]’:
+/usr/include/c++/4.7/bits/stl_algo.h:4466:45:   required from ‘_IIter std::find(_IIter, _IIter, const _Tp&) [with _IIter = __gnu_cxx::__normal_iterator<const unsigned int*, std::vector<unsigned int> >; _Tp = psy::lex::codepoint]’
+lexical/ucn/ucn.cpp:43:97:   required from here
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:162:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:166:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:170:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:174:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:182:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:186:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: error: no match for ‘operator==’ in ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >() == __val’
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note: candidates are:
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2383:5: note: template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)
+/usr/include/c++/4.7/functional:2383:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   cannot convert ‘__first.__gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*<const unsigned int*, std::vector<unsigned int> >()’ (type ‘const unsigned int’) to type ‘std::nullptr_t’
+In file included from /usr/include/c++/4.7/bits/stl_algo.h:68:0,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/functional:2377:5: note: template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)
+/usr/include/c++/4.7/functional:2377:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::function<_Res(_ArgTypes ...)>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/functional:56:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:68,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/tuple:797:5: note: template<class ... _TElements, class ... _UElements> bool std::operator==(const std::tuple<_TElements ...>&, const std::tuple<_Elements ...>&)
+/usr/include/c++/4.7/tuple:797:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::tuple<_TElements ...>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5326:5: note: template<class _RealType> bool std::operator==(const std::piecewise_linear_distribution<_RealType>&, const std::piecewise_linear_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5326:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::piecewise_linear_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:5084:5: note: template<class _RealType> bool std::operator==(const std::piecewise_constant_distribution<_RealType>&, const std::piecewise_constant_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:5084:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::piecewise_constant_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4845:5: note: template<class _IntType> bool std::operator==(const std::discrete_distribution<_IntType>&, const std::discrete_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:4845:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::discrete_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4613:5: note: template<class _RealType> bool std::operator==(const std::extreme_value_distribution<_RealType>&, const std::extreme_value_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4613:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::extreme_value_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4438:5: note: template<class _RealType> bool std::operator==(const std::weibull_distribution<_RealType>&, const std::weibull_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4438:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::weibull_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:4263:5: note: template<class _RealType> bool std::operator==(const std::exponential_distribution<_RealType>&, const std::exponential_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:4263:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::exponential_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3721:5: note: template<class _IntType> bool std::operator==(const std::geometric_distribution<_IntType>&, const std::geometric_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:3721:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::geometric_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:51:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note: template<class _RealType1> bool std::operator==(const std::normal_distribution<_RealType>&, const std::normal_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.tcc:1712:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::normal_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:3345:3: note: bool std::operator==(const std::bernoulli_distribution&, const std::bernoulli_distribution&)
+/usr/include/c++/4.7/bits/random.h:3345:3: note:   no known conversion for argument 1 from ‘const unsigned int’ to ‘const std::bernoulli_distribution&’
+/usr/include/c++/4.7/bits/random.h:2808:5: note: template<class _RealType> bool std::operator==(const std::cauchy_distribution<_RealType>&, const std::cauchy_distribution<_RealType>&)
+/usr/include/c++/4.7/bits/random.h:2808:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::cauchy_distribution<_RealType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1919:5: note: template<class _IntType> bool std::operator==(const std::uniform_real_distribution<_IntType>&, const std::uniform_real_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1919:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::uniform_real_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/random:50:0,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/random.h:1738:5: note: template<class _IntType> bool std::operator==(const std::uniform_int_distribution<_IntType>&, const std::uniform_int_distribution<_IntType>&)
+/usr/include/c++/4.7/bits/random.h:1738:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::uniform_int_distribution<_IntType>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+/usr/include/c++/4.7/bits/basic_string.h:2516:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2504:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const _CharT*’ and ‘unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note: template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::basic_string<_CharT>&, const std::basic_string<_CharT>&)
+/usr/include/c++/4.7/bits/basic_string.h:2490:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::basic_string<_CharT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/string:54:0,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+/usr/include/c++/4.7/bits/basic_string.h:2483:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/char_traits.h:42:0,
+                 from /usr/include/c++/4.7/string:42,
+                 from /usr/include/c++/4.7/random:41,
+                 from /usr/include/c++/4.7/bits/stl_algo.h:67,
+                 from /usr/include/c++/4.7/algorithm:63,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/postypes.h:218:5: note: template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+/usr/include/c++/4.7/bits/postypes.h:218:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:65:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note: template<class _Tp, class _Alloc> bool std::operator==(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+/usr/include/c++/4.7/bits/stl_vector.h:1370:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:124:5: note: template<class _Tp> bool std::operator==(const std::allocator<_Tp1>&, const std::allocator<_Tp1>&)
+/usr/include/c++/4.7/bits/allocator.h:124:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::allocator<_Tp1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/vector:62:0,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/allocator.h:119:5: note: template<class _T1, class _T2> bool std::operator==(const std::allocator<_T1>&, const std::allocator<_T2>&)
+/usr/include/c++/4.7/bits/allocator.h:119:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::allocator<_T1>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note: template<class _Iterator> bool std::operator==(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1039:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::move_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:1033:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::move_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note: template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_IteratorL>&, const std::reverse_iterator<_IteratorR>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:343:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::reverse_iterator<_IteratorL>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:68:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note: template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+/usr/include/c++/4.7/bits/stl_iterator.h:293:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘const unsigned int’
+In file included from /usr/include/c++/4.7/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/4.7/vector:61,
+                 from lexical/ucn/ucn.cpp:15:
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note: template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+/usr/include/c++/4.7/bits/stl_pair.h:206:5: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/4.7/algorithm:63:0,
+                 from lexical/ucn/ucn.cpp:16:
+/usr/include/c++/4.7/bits/stl_algo.h:190:4: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘const unsigned int’
+lexical/ucn/ucn.cpp: In function ‘bool is_shortname(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:63:1: warning: control reaches end of non-void function [-Wreturn-type]
+lexical/ucn/ucn.cpp: In function ‘bool check_third_plus_digit(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:54:1: warning: control reaches end of non-void function [-Wreturn-type]
+lexical/ucn/ucn.cpp: In function ‘bool check_first_digit(psy::lex::codepoint)’:
+lexical/ucn/ucn.cpp:35:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [build/pp-tokens/lexical/ucn/ucn.o] Error 1
